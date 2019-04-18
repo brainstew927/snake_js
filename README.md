@@ -3,3 +3,4 @@
 feature future da aggiungere:
 
 - [ ] movimento a seconda dei tasti premuti
+- [ ] rendering serpente
