@@ -1,6 +1,13 @@
 //posizione iniziale del blocco
 var x = 100; 
 var y = 100;
+//array posizioni
+var array_x = [];
+var array_y = [];
+
+array_x.push(x);
+array_y.push(y);
+
 //variabili per il movimento(se y_su = true il blocco va su, se x_de = true il blocco va a destra)
 y_su = false;
 x_de = true;
@@ -10,6 +17,8 @@ var cont;
 //larghezza e altezza globali dei blocchi
 larghezza = 60
 altezza = 60;
+
+var lunghezza_snake;
 
 class blocco{
     constructor(height, width){
@@ -27,33 +36,32 @@ function start(){
 
 function move(){
     
-    if(y >= canv.height - ogg.height){
+    if(array_y[0] >= canv.height - ogg.height){
         y_su = true;
     }
-    if(y <= 0){
+    if(array_y[0] <= 0){
         y_su = false;
     }   
 
-    if(x >= canv.width - ogg.width){
+    if(array_x[0] >= canv.width - ogg.width){
         x_de = false;
     }
-    if(x <= 0){
+    if(array_x[0] <= 0){
         x_de = true;
     }
 
     if(x_de){
-        x++;
+        array_x[0]++;
     }
     if(!x_de){
-        x--;
+        array_x[0]--;
     }
     if(y_su){
-        y--;
+        array_y[0]--;
     }
     if(!y_su){
-        y++;
-    }
-    
+        array_y[0]++;
+    }  
 }
 
 function clear_rect(){
@@ -65,12 +73,12 @@ function draw(){
     clear_rect();
     cont.beginPath();    
 
-    cont.rect(x,y, ogg.width,ogg.width)
-    console.log("width:" + canv.width + "  height:"+ canv.height)
+    cont.rect(array_x[0],array_y[0], ogg.width,ogg.width)
+   // console.log("width:" + canv.width + "  height:"+ canv.height)
     cont.stroke();
     
     move()
     
-    console.log("x:" + x+ " y:" + y);
+    console.log("x:" + array_x[0]+ " y:" + array_y[0]);
 }
-setInterval(draw, 2);
+setInterval(draw, 1);
