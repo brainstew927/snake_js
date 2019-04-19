@@ -5,4 +5,5 @@ feature future da aggiungere:
 - [x] movimento a seconda dei tasti premuti
 - [x] rendering serpente
 - [x] aumento di lunghezza del serpente
-- [ ] generazione di mele e logica di gioco(punteggio, morte etc)
+- [x] generazione di mele e aumento di lunghezza del serpente in caso di collisione
+- [ ] logica di gioco(punteggio, morte etc)
